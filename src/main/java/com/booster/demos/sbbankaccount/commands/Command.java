@@ -1,5 +1,7 @@
 package com.booster.demos.sbbankaccount.commands;
 
-public interface Command {
+import java.io.Serializable;
+
+public interface Command extends Serializable {
     boolean execute();
 }
