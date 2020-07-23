@@ -1,5 +1,8 @@
 package com.booster.demos.sbbankaccount.commands;
 
+import com.booster.demos.sbbankaccount.events.WithdrawPerformed;
+import com.booster.demos.sbbankaccount.infra.EventsStore;
+
 import java.util.UUID;
 
 public class Withdraw implements Command {
@@ -12,6 +15,7 @@ public class Withdraw implements Command {
     }
 
     @Override
-    public void execute() {
+    public void execute(EventsStore eventsStore) {
+        eventsStore.insert(new WithdrawPerformed(iban, amount));
     }
 }

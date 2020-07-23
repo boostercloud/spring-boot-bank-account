@@ -1,5 +1,8 @@
 package com.booster.demos.sbbankaccount.commands;
 
+import com.booster.demos.sbbankaccount.events.DepositPerformed;
+import com.booster.demos.sbbankaccount.infra.EventsStore;
+
 import java.util.UUID;
 
 public class Deposit implements Command {
@@ -12,6 +15,7 @@ public class Deposit implements Command {
     }
 
     @Override
-    public void execute() {
+    public void execute(EventsStore eventsStore) {
+        eventsStore.insert(new DepositPerformed(iban, amount));
     }
 }
