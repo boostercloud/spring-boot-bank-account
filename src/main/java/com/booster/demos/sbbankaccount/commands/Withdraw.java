@@ -12,7 +12,6 @@ public class Withdraw implements Command {
     }
 
     @Override
-    public boolean execute() {
-        return false;
+    public void execute() {
     }
 }

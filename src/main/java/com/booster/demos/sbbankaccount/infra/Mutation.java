@@ -1,5 +1,6 @@
 package com.booster.demos.sbbankaccount.infra;
 
+import com.booster.demos.sbbankaccount.commands.Command;
 import com.booster.demos.sbbankaccount.commands.CreateBankAccount;
 import com.booster.demos.sbbankaccount.commands.Deposit;
 import com.booster.demos.sbbankaccount.commands.Withdraw;
@@ -17,14 +18,23 @@ public class Mutation implements GraphQLMutationResolver {
     }
 
     public boolean CreateBankAccount(Inputs.CreateBankAccount input) {
-        return commandsSender.send(new CreateBankAccount(input.owner));
+        return send(new CreateBankAccount(input.owner));
     }
 
     public boolean Deposit(Inputs.Deposit input) {
-        return commandsSender.send(new Deposit(input.iban, input.amount));
+        return send(new Deposit(input.iban, input.amount));
     }
 
     public boolean Withdraw(Inputs.Withdraw input) {
-        return commandsSender.send(new Withdraw(input.iban, input.amount));
+        return send(new Withdraw(input.iban, input.amount));
+    }
+
+    private boolean send(Command command) {
+        try {
+            return commandsSender.send(command);
+        } catch (UnknownCommandException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

@@ -2,7 +2,7 @@ package com.booster.demos.sbbankaccount.commands;
 
 import java.util.UUID;
 
-public class Deposit implements Command{
+public class Deposit implements Command {
     public UUID iban;
     public int amount;
 
@@ -12,7 +12,6 @@ public class Deposit implements Command{
     }
 
     @Override
-    public boolean execute() {
-        return false;
+    public void execute() {
     }
 }
