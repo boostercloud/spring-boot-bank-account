@@ -22,7 +22,7 @@ public class EntityReducer {
         } else if (event instanceof WithdrawPerformed) {
             handleWithdrawPerformed((WithdrawPerformed) event);
         } else {
-            throw new UnknownEvent(event.getClass().getSimpleName());
+            throw new UnknownEventException(event.getClass().getSimpleName());
         }
     }
 

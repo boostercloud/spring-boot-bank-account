@@ -1,9 +1,6 @@
 package com.booster.demos.sbbankaccount.infra;
 
 import com.booster.demos.sbbankaccount.events.Event;
-import com.booster.demos.sbbankaccount.events.UnknownEvent;
-import com.booster.demos.sbbankaccount.infra.EntityReducer;
-import com.booster.demos.sbbankaccount.infra.EventsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +15,7 @@ public class EventStore {
         this.entityReducer = entityReducer;
     }
 
-    public void append(Event event) throws UnknownEvent {
+    public void append(Event event) throws UnknownEventException {
         repository.insert(event);
         entityReducer.reduce(event);
     }
