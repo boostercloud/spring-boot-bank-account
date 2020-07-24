@@ -1,4 +1,4 @@
-package com.booster.demos.sbbankaccount.infra;
+package com.booster.demos.sbbankaccount.infrastructure;
 
 import com.booster.demos.sbbankaccount.readmodels.BankAccountReadModel;
 import graphql.kickstart.tools.GraphQLQueryResolver;

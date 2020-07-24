@@ -1,4 +1,4 @@
-package com.booster.demos.sbbankaccount.infra;
+package com.booster.demos.sbbankaccount.infrastructure;
 
 import java.util.UUID;
 

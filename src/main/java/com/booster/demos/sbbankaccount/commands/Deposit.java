@@ -1,6 +1,6 @@
 package com.booster.demos.sbbankaccount.commands;
 
-import com.booster.demos.sbbankaccount.infra.EventStore;
+import com.booster.demos.sbbankaccount.infrastructure.EventStore;
 import com.booster.demos.sbbankaccount.events.DepositPerformed;
 
 import java.util.UUID;

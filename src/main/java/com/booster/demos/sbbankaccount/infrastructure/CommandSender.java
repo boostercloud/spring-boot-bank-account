@@ -1,8 +1,6 @@
-package com.booster.demos.sbbankaccount.infra;
+package com.booster.demos.sbbankaccount.infrastructure;
 
 import com.booster.demos.sbbankaccount.commands.Command;
-import com.booster.demos.sbbankaccount.commands.CreateBankAccount;
-import com.booster.demos.sbbankaccount.commands.Deposit;
 import com.booster.demos.sbbankaccount.commands.Withdraw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
