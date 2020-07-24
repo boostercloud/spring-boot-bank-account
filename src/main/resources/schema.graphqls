@@ -23,12 +23,16 @@ type Mutation {
     Withdraw(input: WithdrawInput): Boolean
 }
 
-type Query {
-    BankAccount: BankAccount
+input BankAccountInput{
+    owner: ID!
 }
 
-type BankAccount {
+type Query {
+    BankAccountReadModel(id: ID!): BankAccountReadModel
+}
+
+type BankAccountReadModel {
+    id: ID!
     iban: ID!
-    owner: ID!
     balance: Int
 }

@@ -9,11 +9,11 @@ import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 
 @EnableBinding(CommandsProcessor.class)
-public class CommandsHandler {
-    private final EventsStore eventsStore;
+public class CommandHandlers {
+    private final EventStore eventsStore;
 
     @Autowired
-    public CommandsHandler(EventsStore eventsStore) {
+    public CommandHandlers(EventStore eventsStore) {
         this.eventsStore = eventsStore;
     }
 
@@ -27,7 +27,7 @@ public class CommandsHandler {
         execute(command);
     }
 
-    @StreamListener(CommandsProcessor.DEPOSIT)
+    @StreamListener(CommandsProcessor.WITHDRAW)
     public void handleWithdraw(Withdraw command) {
         execute(command);
     }

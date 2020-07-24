@@ -1,7 +1,7 @@
 package com.booster.demos.sbbankaccount.commands;
 
-import com.booster.demos.sbbankaccount.infra.EventsStore;
+import com.booster.demos.sbbankaccount.infra.EventStore;
 
 public interface Command {
-    void execute(EventsStore eventsStore);
+    void execute(EventStore eventsStore);
 }

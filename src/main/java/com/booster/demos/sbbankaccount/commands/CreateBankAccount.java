@@ -1,7 +1,7 @@
 package com.booster.demos.sbbankaccount.commands;
 
+import com.booster.demos.sbbankaccount.infra.EventStore;
 import com.booster.demos.sbbankaccount.events.BankAccountCreated;
-import com.booster.demos.sbbankaccount.infra.EventsStore;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 import java.util.UUID;
@@ -15,7 +15,7 @@ public class CreateBankAccount implements Command {
     }
 
     @Override
-    public void execute(EventsStore events) {
-        events.insert(new BankAccountCreated(UUID.randomUUID(), this.owner));
+    public void execute(EventStore events) {
+        events.append(new BankAccountCreated(UUID.randomUUID(), this.owner));
     }
 }

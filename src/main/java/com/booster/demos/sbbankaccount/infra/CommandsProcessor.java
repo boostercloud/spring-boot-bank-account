@@ -20,6 +20,12 @@ public interface CommandsProcessor {
     @Output(CommandsProcessor.DEPOSIT)
     MessageChannel depositOutput();
 
+    @Input(CommandsProcessor.DEPOSIT)
+    SubscribableChannel depositInput();
+
     @Output(CommandsProcessor.WITHDRAW)
     MessageChannel withdrawOutput();
+
+    @Input(CommandsProcessor.WITHDRAW)
+    SubscribableChannel withdrawInput();
 }
