@@ -10,28 +10,28 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Mutation implements GraphQLMutationResolver {
-    private final CommandsSender commandsSender;
+    private final CommandSender commandSender;
 
     @Autowired
-    public Mutation(CommandsSender commandsSender) {
-        this.commandsSender = commandsSender;
+    public Mutation(CommandSender commandSender) {
+        this.commandSender = commandSender;
     }
 
-    public boolean CreateBankAccount(Inputs.CreateBankAccount input) {
+    public boolean CreateBankAccount(GraphQLInputs.CreateBankAccount input) {
         return send(new CreateBankAccount(input.owner));
     }
 
-    public boolean Deposit(Inputs.Deposit input) {
+    public boolean Deposit(GraphQLInputs.Deposit input) {
         return send(new Deposit(input.iban, input.amount));
     }
 
-    public boolean Withdraw(Inputs.Withdraw input) {
+    public boolean Withdraw(GraphQLInputs.Withdraw input) {
         return send(new Withdraw(input.iban, input.amount));
     }
 
     private boolean send(Command command) {
         try {
-            return commandsSender.send(command);
+            return commandSender.send(command);
         } catch (UnknownCommandException e) {
             e.printStackTrace();
             return false;

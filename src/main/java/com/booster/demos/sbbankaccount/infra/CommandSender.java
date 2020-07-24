@@ -12,11 +12,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 @EnableBinding(CommandsProcessor.class)
-public class CommandsSender {
+public class CommandSender {
     private final CommandsProcessor router;
 
     @Autowired
-    public CommandsSender(CommandsProcessor commandsProcessor) {
+    public CommandSender(CommandsProcessor commandsProcessor) {
         this.router = commandsProcessor;
     }
 

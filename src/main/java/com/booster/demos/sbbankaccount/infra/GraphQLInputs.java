@@ -2,7 +2,7 @@ package com.booster.demos.sbbankaccount.infra;
 
 import java.util.UUID;
 
-public class Inputs {
+public class GraphQLInputs {
     public static class CreateBankAccount {
         public UUID owner;
     }
