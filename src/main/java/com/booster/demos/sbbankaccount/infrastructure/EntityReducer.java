@@ -1,7 +1,10 @@
 package com.booster.demos.sbbankaccount.infrastructure;
 
 import com.booster.demos.sbbankaccount.entities.BankAccount;
-import com.booster.demos.sbbankaccount.events.*;
+import com.booster.demos.sbbankaccount.events.BankAccountCreated;
+import com.booster.demos.sbbankaccount.events.DepositPerformed;
+import com.booster.demos.sbbankaccount.events.Event;
+import com.booster.demos.sbbankaccount.events.WithdrawPerformed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,29 +19,21 @@ public class EntityReducer {
 
     public void reduce(Event event) {
         if (event instanceof BankAccountCreated) {
-            handleBankAccountCreated((BankAccountCreated) event);
+            save(BankAccount.reduce((BankAccountCreated) event, currentBankAccount(event)));
         } else if (event instanceof DepositPerformed) {
-            handleDepositPerformed((DepositPerformed) event);
+            save(BankAccount.reduce((DepositPerformed) event, currentBankAccount(event)));
         } else if (event instanceof WithdrawPerformed) {
-            handleWithdrawPerformed((WithdrawPerformed) event);
+            save(BankAccount.reduce((WithdrawPerformed) event, currentBankAccount(event)));
         } else {
             throw new UnknownEventException(event.getClass().getSimpleName());
         }
     }
 
-    private void handleBankAccountCreated(BankAccountCreated event) {
-        accountRepository.insert(BankAccount.reduceBankAccountCreated(event));
+    private void save(BankAccount entity) {
+        accountRepository.save(entity);
     }
 
-    private void handleDepositPerformed(DepositPerformed event) {
-        accountRepository.findByIban(event.iban)
-                .map(currentAccount -> BankAccount.reduceDepositPerformed(event, currentAccount))
-                .ifPresent(accountRepository::save);
-    }
-
-    private void handleWithdrawPerformed(WithdrawPerformed event) {
-        accountRepository.findByIban(event.iban)
-                .map(currentAccount -> BankAccount.reduceWithdrawPerformed(event, currentAccount))
-                .ifPresent(accountRepository::save);
+    private BankAccount currentBankAccount(Event event) {
+        return accountRepository.findByEntityId(event.getEntityId()).orElse(null);
     }
 }

@@ -10,4 +10,9 @@ public class BankAccountCreated extends Event {
         this.iban = iban;
         this.owner = owner;
     }
+
+    @Override
+    public UUID getEntityId() {
+        return this.iban;
+    }
 }

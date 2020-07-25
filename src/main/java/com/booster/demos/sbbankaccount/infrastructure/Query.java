@@ -18,6 +18,7 @@ public class Query implements GraphQLQueryResolver {
     }
 
     public Optional<BankAccountReadModel> BankAccountReadModel(UUID owner) {
-        return repository.findByOwner(owner).map(BankAccountReadModel::new);
+        return repository.findByOwner(owner)
+                .map(BankAccountReadModel::new);
     }
 }

@@ -10,4 +10,9 @@ public class DepositPerformed extends Event {
         this.iban = iban;
         this.amount = amount;
     }
+
+    @Override
+    public UUID getEntityId() {
+        return this.iban;
+    }
 }
