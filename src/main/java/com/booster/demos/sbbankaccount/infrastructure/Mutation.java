@@ -6,6 +6,7 @@ import com.booster.demos.sbbankaccount.commands.Deposit;
 import com.booster.demos.sbbankaccount.commands.Withdraw;
 import graphql.kickstart.tools.GraphQLMutationResolver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,14 +18,17 @@ public class Mutation implements GraphQLMutationResolver {
         this.commandSender = commandSender;
     }
 
+    @PreAuthorize("hasAuthority('SCOPE_BANK_TELLER')")
     public boolean CreateBankAccount(GraphQLInputs.CreateBankAccount input) {
         return send(new CreateBankAccount(input.owner));
     }
 
+    @PreAuthorize("hasAuthority('SCOPE_CLIENT') or hasAuthority('SCOPE_BANK_TELLER')")
     public boolean Deposit(GraphQLInputs.Deposit input) {
         return send(new Deposit(input.iban, input.amount));
     }
 
+    @PreAuthorize("hasAuthority('SCOPE_CLIENT') or hasAuthority('SCOPE_BANK_TELLER')")
     public boolean Withdraw(GraphQLInputs.Withdraw input) {
         return send(new Withdraw(input.iban, input.amount));
     }

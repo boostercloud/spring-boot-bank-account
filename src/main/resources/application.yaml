@@ -1,6 +1,13 @@
 server:
   port: 8080
 
+jwt:
+  secret: ${JWT_SECRET}
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n"
+
 spring:
   rabbitmq:
     host: localhost

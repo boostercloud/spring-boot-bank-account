@@ -3,6 +3,7 @@ package com.booster.demos.sbbankaccount.infrastructure;
 import com.booster.demos.sbbankaccount.readmodels.BankAccountReadModel;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -17,6 +18,7 @@ public class Query implements GraphQLQueryResolver {
         this.repository = repository;
     }
 
+    @PreAuthorize("hasAuthority('SCOPE_CLIENT') or hasAuthority('SCOPE_BANK_TELLER')")
     public Optional<BankAccountReadModel> BankAccountReadModel(UUID owner) {
         return repository.findByOwner(owner)
                 .map(BankAccountReadModel::new);
