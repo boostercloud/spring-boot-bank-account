@@ -1,4 +1,4 @@
-package com.booster.demos.sbbankaccount.infrastructure;
+package com.booster.demos.sbbankaccount.infrastructure.mongo;
 
 
 import org.springframework.cloud.stream.annotation.Input;

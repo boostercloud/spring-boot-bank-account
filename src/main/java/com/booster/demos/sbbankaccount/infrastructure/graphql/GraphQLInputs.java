@@ -1,4 +1,4 @@
-package com.booster.demos.sbbankaccount.infrastructure;
+package com.booster.demos.sbbankaccount.infrastructure.graphql;
 
 import java.util.UUID;
 

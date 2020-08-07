@@ -1,4 +1,4 @@
-package com.booster.demos.sbbankaccount.infrastructure;
+package com.booster.demos.sbbankaccount.infrastructure.mongo;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;

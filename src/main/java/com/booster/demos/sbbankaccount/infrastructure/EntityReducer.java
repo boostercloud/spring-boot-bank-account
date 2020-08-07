@@ -5,6 +5,7 @@ import com.booster.demos.sbbankaccount.events.BankAccountCreated;
 import com.booster.demos.sbbankaccount.events.DepositPerformed;
 import com.booster.demos.sbbankaccount.events.Event;
 import com.booster.demos.sbbankaccount.events.WithdrawPerformed;
+import com.booster.demos.sbbankaccount.infrastructure.mongo.BankAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

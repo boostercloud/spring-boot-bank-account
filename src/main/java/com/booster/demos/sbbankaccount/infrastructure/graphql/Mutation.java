@@ -1,9 +1,11 @@
-package com.booster.demos.sbbankaccount.infrastructure;
+package com.booster.demos.sbbankaccount.infrastructure.graphql;
 
 import com.booster.demos.sbbankaccount.commands.Command;
 import com.booster.demos.sbbankaccount.commands.CreateBankAccount;
 import com.booster.demos.sbbankaccount.commands.Deposit;
 import com.booster.demos.sbbankaccount.commands.Withdraw;
+import com.booster.demos.sbbankaccount.infrastructure.message.CommandSender;
+import com.booster.demos.sbbankaccount.infrastructure.message.UnknownCommandException;
 import graphql.kickstart.tools.GraphQLMutationResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

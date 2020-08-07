@@ -1,4 +1,4 @@
-package com.booster.demos.sbbankaccount.infrastructure.commandhandlers;
+package com.booster.demos.sbbankaccount.infrastructure.message;
 
 import com.booster.demos.sbbankaccount.commands.Command;
 import com.booster.demos.sbbankaccount.infrastructure.EventStore;

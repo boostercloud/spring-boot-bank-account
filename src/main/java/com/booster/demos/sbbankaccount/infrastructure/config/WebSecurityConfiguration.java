@@ -1,4 +1,4 @@
-package com.booster.demos.sbbankaccount.infrastructure;
+package com.booster.demos.sbbankaccount.infrastructure.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

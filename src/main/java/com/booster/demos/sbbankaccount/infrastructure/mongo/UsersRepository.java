@@ -1,4 +1,4 @@
-package com.booster.demos.sbbankaccount.infrastructure;
+package com.booster.demos.sbbankaccount.infrastructure.mongo;
 
 import com.booster.demos.sbbankaccount.entities.User;
 import org.springframework.data.mongodb.repository.MongoRepository;

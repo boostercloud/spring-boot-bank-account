@@ -1,7 +1,8 @@
-package com.booster.demos.sbbankaccount.infrastructure;
+package com.booster.demos.sbbankaccount.infrastructure.message;
 
 import com.booster.demos.sbbankaccount.commands.Command;
 import com.booster.demos.sbbankaccount.commands.Withdraw;
+import com.booster.demos.sbbankaccount.infrastructure.mongo.CommandsProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.messaging.Message;

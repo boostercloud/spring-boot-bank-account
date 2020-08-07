@@ -1,5 +1,6 @@
-package com.booster.demos.sbbankaccount.infrastructure;
+package com.booster.demos.sbbankaccount.infrastructure.graphql;
 
+import com.booster.demos.sbbankaccount.infrastructure.mongo.BankAccountRepository;
 import com.booster.demos.sbbankaccount.readmodels.BankAccountReadModel;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.beans.factory.annotation.Autowired;

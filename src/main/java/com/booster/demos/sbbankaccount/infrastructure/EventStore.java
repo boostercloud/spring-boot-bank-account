@@ -1,6 +1,7 @@
 package com.booster.demos.sbbankaccount.infrastructure;
 
 import com.booster.demos.sbbankaccount.events.Event;
+import com.booster.demos.sbbankaccount.infrastructure.mongo.EventsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
